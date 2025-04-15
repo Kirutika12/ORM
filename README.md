@@ -23,12 +23,35 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+~~~
+admin.py
 
+from django.contrib import admin
+from .models import Movies,MoviesAdmin
+admin.site.register(Movies,MoviesAdmin)
+
+
+models.py
+
+from django.db import models
+from django.contrib import admin
+class Movies(models.Model):
+    userid=models.IntegerField(primary_key=True)
+    username=models.CharField(max_length=30)
+    mobileno=models.IntegerField()
+    mailid=models.EmailField()
+    moviename=models.CharField(max_length=50)
+    noofseats=models.IntegerField()
+    date=models.DateField()
+
+class MoviesAdmin(admin.ModelAdmin):
+    list_display=('username','moviename','noofseats','mailid')
+~~~    
 
 
 ## OUTPUT
+![alt text](<Screenshot 2025-04-15 144253.png>)
 
-Include the screenshot of your admin page.
 
 
 ## RESULT
